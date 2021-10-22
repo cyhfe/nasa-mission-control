@@ -6,6 +6,7 @@ const http = require('http');
 const mongoose = require('mongoose');
 
 const app = require('./app');
+const { loadPlanetsData } = require('./resource/planets/planets.controller');
 
 const server = http.createServer(app);
 
@@ -17,6 +18,7 @@ async function start() {
     () => console.log('connected to ' + MONGO_URL),
     (err) => console.log(err)
   );
+  await loadPlanetsData();
   server.listen(PORT, () => {
     console.log('server running in ' + PORT);
   });
