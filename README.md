@@ -1,14 +1,6 @@
 # nasa-mission-control
 
 ```bash
-mkdir client server
+heroku login -i
 
-cd client
-npx create-react-app .
-npm install arwes
-
-npm run start
 ```
-
-
-
