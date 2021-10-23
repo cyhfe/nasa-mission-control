@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const path = require('path');
 
 const planetRouter = require('./resource/planets/planets.router');
+const launchesRouter = require('./resource/launches/launches.router');
 const { errorHandler } = require('./utils');
 
 const app = express();
@@ -14,6 +15,7 @@ app.use(express.json());
 app.use(express.static(path.resolve(__dirname, '..', 'public')));
 
 app.use('/planets', planetRouter);
+app.use('/launches', launchesRouter);
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'public', 'index.html'));

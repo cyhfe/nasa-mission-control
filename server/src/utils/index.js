@@ -9,6 +9,7 @@ const fs = require('fs');
 /*                                错误处理中间件                                */
 /* -------------------------------------------------------------------------- */
 function errorHandler(err, req, res, next) {
+  console.log(err);
   res.status(500).json({
     message: err.message,
   });
