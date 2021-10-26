@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { ThemeProvider, createTheme, Arwes, Button } from 'arwes';
 
 export function App() {
