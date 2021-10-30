@@ -1,15 +1,34 @@
-import React from 'react';
-import { ThemeProvider, createTheme, Arwes, Button } from 'arwes';
+import { BrowserRouter as Router } from 'react-router-dom';
+import {
+  Arwes,
+  SoundsProvider,
+  ThemeProvider,
+  createSounds,
+  createTheme,
+} from 'arwes';
 
-export function App() {
+import AppLayout from './pages/AppLayout';
+
+import { theme, resources, sounds } from './settings';
+
+const App = () => {
   return (
-    <ThemeProvider theme={createTheme()}>
-      <Arwes>
-        <p>A SciFi Project</p>
-        <div style={{ padding: 20 }}>
-          <Button>My Button</Button>
-        </div>
-      </Arwes>
+    <ThemeProvider theme={createTheme(theme)}>
+      <SoundsProvider sounds={createSounds(sounds)}>
+        <Arwes
+          animate
+          background={resources.background.large}
+          pattern={resources.pattern}
+        >
+          {(anim) => (
+            <Router>
+              <AppLayout show={anim.entered} />
+            </Router>
+          )}
+        </Arwes>
+      </SoundsProvider>
     </ThemeProvider>
   );
-}
+};
+
+export default App;

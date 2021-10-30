@@ -50,7 +50,7 @@ async function abortLaunchById(launchId) {
     }
   );
 
-  return aborted.ok === 1 && aborted.nModified === 1;
+  return aborted;
 }
 
 async function getAllLaunches(req, res, next) {
